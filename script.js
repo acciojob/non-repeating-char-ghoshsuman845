@@ -20,3 +20,4 @@ if (result) {
 } else {
   alert("There's no non-repeated character in the string.");
 }
+
