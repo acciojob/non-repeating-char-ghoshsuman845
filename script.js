@@ -1,24 +1,29 @@
 //your JS code here. If required.
-function firstNonRepeatedChar(str) {
-  const charCounts = new Map();
-  for (const char of str) {
-    charCounts.set(char, (charCounts.get(char) || 0) + 1);
-  }
+function firstNonRepeatedChar() {
+  var input = prompt("Enter a string:");
+  var charCount = {};
 
-  for (const char of str) {
-    if (charCounts.get(char) === 1) {
-      return char;
+  // Count the occurrences of each character in the string
+  for (var i = 0; i < input.length; i++) {
+    var char = input[i];
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
     }
   }
-  return null;
+
+  // Find the first non-repeated character
+  for (var j = 0; j < input.length; j++) {
+    var char = input[j];
+    if (charCount[char] === 1) {
+      alert("The first non-repeated character is: " + char);
+      return;
+    }
+  }
+
+  // If no non-repeated character found
+  alert("No non-repeated character found.");
 }
 
-const userInput = prompt("Enter a string:");
-const result = firstNonRepeatedChar(userInput);
-if (result) {
-  alert(`The first non-repeated character is "${result}"`);
-} else {
-  alert("There's no non-repeated character in the string.");
-}
-}
 
